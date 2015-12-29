@@ -1,4 +1,4 @@
-//META{"name":"MaterialCord"}*//
+//META{"name":"materialCord"}*//
 
 function materialCord() {}
 
@@ -13,15 +13,28 @@ materialCord.prototype.unload = function() {
 materialCord.prototype.start = function() {
     console.info("%c[BetterDiscord]" + " %c" + this.getName() + "(" + this.getVersion() + ") started", "color: purple; font-weight: bold;", "");
     
-    var materializeJS = document.createElement("script");
-    materializeJS.type = "text/javascript";
-    materializeJS.src = "//raw.githubusercontent.com/Dogfalo/materialize/master/bin/materialize.js";
-    $("head").append(materializeJS);
+    //Add javascript and js to head
+    $('<script/>', {src: 'https://cdn.rawgit.com/AetherXCloud/Material-DiscordApp/master/js/mdl.min.js'}).appendTo('head');
+    // var hammerJS = document.createElement("script");
+    //     hammerJS.src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js";
+    //     $('head').append(hammerJS);
     
-    var materializeCSS = document.createElement("link");
-    materializeCSS.rel = "stylesheet";
-    materializeCSS.href = "//raw.githubusercontent.com/Dogfalo/materialize/master/bin/materialize.css";
-    $("head").append(materializeCSS);
+    $('<link/>', {rel: 'stylesheet', href: 'https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue-pink.min.css'}).appendTo('head');
+    $('<link/>', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'}).appendTo('head');
+    
+    $(".btn.btn-settings").click(function() { setTimeout(function(){ var button = document.createElement('button');
+    var textNode = document.createTextNode('Done');
+    button.appendChild(textNode);
+    button.className = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored';
+    button.type = 'button';
+    button.id = "settings-done-btn";
+    componentHandler.upgradeElement(button);
+    $(".settings-actions").append(button);
+    $(document).on('click', "#settings-done-btn", function() {
+    $("button[data-reactid='.0.5.$=1$UserSettingsModal.0.0.1.1.2']").click()
+    });
+
+    
 };
 materialCord.prototype.stop = function() {
     console.info("%c[BetterDiscord]" + " %c" + this.getName() + "(" + this.getVersion() + ") stopped", "color: purple; font-weight: bold;", "");
