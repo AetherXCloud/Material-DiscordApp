@@ -15,13 +15,11 @@ materialCord.prototype.start = function() {
     
     //Add javascript and js to head
     $('<script/>', {src: 'https://cdn.rawgit.com/AetherXCloud/Material-DiscordApp/master/js/mdl.min.js'}).appendTo('head');
-    // var hammerJS = document.createElement("script");
-    //     hammerJS.src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js";
-    //     $('head').append(hammerJS);
     
     $('<link/>', {rel: 'stylesheet', href: 'https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue-pink.min.css'}).appendTo('head');
     $('<link/>', {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'}).appendTo('head');
     
+    //Setting done button test
     $(".btn.btn-settings").click(function() { setTimeout(function(){ var button = document.createElement('button');
     var textNode = document.createTextNode('Done');
     button.appendChild(textNode);
